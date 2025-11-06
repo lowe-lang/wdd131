@@ -1,0 +1,49 @@
+@media only screen and (min-width: 48rem) {
+
+    .header-inner {
+        align-items: center;
+    }
+
+    .hamburger {
+        display: none;
+    }
+
+    .primary-nav {
+        position: static;
+        transform: none;
+        opacity: 1;
+        visibility: visible;
+        flex-direction: row;
+        gap: 1rem;
+        background: transparent;
+        padding: 0;
+        border: 0;
+    }
+
+    .primary-nav a {
+        padding: 0.5rem 0.6rem;
+        color: var(--accent);
+    }
+
+    .gallery {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+    }
+
+    main {
+        padding: 2rem;
+    }
+
+    .footer-inner {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+@media only screen and (min-width: 80rem) {
+
+    .gallery {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}

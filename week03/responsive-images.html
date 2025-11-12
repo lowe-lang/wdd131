@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>W03 – Responsive Images</title>
+    <link rel="stylesheet" href="styles/responsive-images.css">
+</head>
+
+<body>
+    <header>
+        <h1>Responsive Image Example</h1>
+    </header>
+
+    <main>
+        <div class="hero">
+            <picture>
+                <!-- Large image (desktop) -->
+                <source srcset="images/hero-large.webp" media="(min-width: 1000px)">
+
+                <!-- Medium image (tablet) -->
+                <source srcset="images/hero-medium.webp" media="(min-width: 500px)">
+
+                <!-- Default (mobile) -->
+                <img src="images/hero-small.webp" alt="Orem Utah Temple at sunrise" width="1500" height="750">
+            </picture>
+        </div>
+
+        <article>
+            <h2>About Responsive Images</h2>
+            <p>
+                This example uses the <code>&lt;picture&gt;</code> element and
+                <code>srcset</code> attribute to load optimized images for
+                different screen sizes. This approach improves performance by
+                reducing data usage on mobile devices.
+            </p>
+        </article>
+    </main>
+
+    <footer>
+        <p>© 2025 Responsive Image Demo | WDD 131</p>
+    </footer>
+</body>
+
+</html>

@@ -4,9 +4,8 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta name="description" content="W04 Enhanced Temple Picture Album — filterable temple cards built with JavaScript. The locations, dedication dates, teple sizes, are all indicated." />
-    <title>Temple Album</title>
     <meta name="description" content="Lowen John">
+    <title>Temple Album</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="filtered-temples.css">
     <script defer src="filtered-temples.js"></script>
@@ -25,12 +24,12 @@
             </button>
 
 
-            <nav id="primary-nav" class="primary-nav" aria-label="Main Navigation">
-                <a href="#" class="nav-btn" aria-pressed="true">Home</a>
-                <a href="#" class="nav-btn">Old</a>
-                <a href="#" class="nav-btn">New</a>
-                <a href="#" class="nav-btn">Large</a>
-                <a href="#" class="nav-btn">Small</a>
+            <nav> 
+                <a href="#" class="nav-btn" data-filter="all" aria-pressed="true">Home</a>
+                <a href="#" class="nav-btn" data-filter="old">Old</a>
+                <a href="#" class="nav-btn" data-filter="new">New</a>
+                <a href="#" class="nav-btn" data-filter="large">Large</a>
+                <a href="#" class="nav-btn" data-filter="small">Small</a>
             </nav>
         </div>
     </header>
@@ -39,7 +38,6 @@
     <main>
         <h2>Temple Photos</h2>
         
-        <div class="gallery"></div>
         <section id="templeGrid" class="gallery" aria-live="polite"></section>
     </main>
 

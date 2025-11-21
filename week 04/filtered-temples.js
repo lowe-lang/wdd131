@@ -1,4 +1,3 @@
-
 const temples = [
     {
         templeName: "Aba Nigeria",
@@ -49,184 +48,96 @@ const temples = [
             "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/lima-peru/400x250/lima-peru-temple-evening-1075606-wallpaper.jpg"
     },
     {
-        templeName: "St. George Utah",
-        location: "St. George, Utah, United States",
-        dedicated: "1877, April, 6",
-        area: null,
+        templeName: "Mexico City Mexico",
+        location: "Mexico City, Mexico",
+        dedicated: "1983, December, 2",
+        area: 116642,
+        imageUrl:
+            "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/mexico-city-mexico/400x250/mexico-city-temple-exterior-1518361-wallpaper.jpg"
+    },
+    {
+        templeName: "Rome Italy",
+        location: "Rome, Italy",
+        dedicated: "2019, March, 10",
+        area: 45000,
         imageUrl:
             "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/aba-nigeria/400x250/aba-nigeria-temple-lds-273999-wallpaper.jpg"
     },
     {
-        templeName: "Logan Utah",
-        location: "Logan, Utah, United States",
-        dedicated: "1884, May, 17",
-        area: null,
+        templeName: "Tokyo Japan",
+        location: "Tokyo, Japan",
+        dedicated: "1980, October, 27",
+        area: 107000,
         imageUrl:
-            "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/manti-utah/400x250/manti-temple-768192-wallpaper.jpg"
+            "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/payson-utah/400x225/payson-utah-temple-exterior-1416671-wallpaper.jpg"
     },
     {
-        templeName: "Oakland California",
-        location: "Oakland, California, United States",
-        dedicated: "1964, November, 19", 
-        area: 80157,  
+        templeName: "Salt Lake City Utah",
+        location: "Salt Lake City, Utah, United States",
+        dedicated: "1893, April, 6",
+        area: 253015,
         imageUrl:
-            "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/washington-dc/400x250/washington_dc_temple-exterior-2.jpeg"
+            "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/manti-utah/400x250/manti-temple-768192-wallpaper.jpg"
     }
-
-
 ];
 
-const grid = document.getElementById("templeGrid");
-const nav = document.getElementById("primary-nav");
+const templeGrid = document.getElementById('templeGrid');
 
-const yearSpan = document.getElementById("year");
-const lastModSpan = document.getElementById("lastModified");
+function displayTemples(templeArray) {
+    templeGrid.innerHTML = '';
+    templeArray.forEach(t => {
+        const card = document.createElement('div');
+        card.className = 'card';
 
+        const img = document.createElement('img');
+        img.src = t.imageUrl;
+        img.alt = t.templeName;
+        img.loading = 'lazy';
+        card.appendChild(img);
 
+        const content = document.createElement('div');
+        content.className = 'card-content';
+        content.innerHTML = `
+      <p class="name">${t.templeName}</p>
+      <p class="meta">Location: ${t.location}</p>
+      <p class="meta">Dedicated: ${t.dedicated}</p>
+      <p class="meta">Area: ${t.area.toLocaleString()} sq ft</p>
+    `;
+        card.appendChild(content);
 
-function formatDate(dateString) {
-    const d = new Date(dateString);
-    if (isNaN(d)) return dateString;
-    return d.toLocaleDateString();
+        templeGrid.appendChild(card);
+    });
 }
 
+displayTemples(temples);
 
+const filterButtons = document.querySelectorAll('.nav-btn');
 
-function createCard(t) {
-    const article = document.createElement("article");
-    article.className = "card";
+filterButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+        const filter = btn.dataset.filter;
+        filterButtons.forEach(b => b.setAttribute('aria-pressed', 'false'));
+        btn.setAttribute('aria-pressed', 'true');
 
-    const img = document.createElement("img");
-    img.src = t.imageUrl;
-    img.alt = t.templeName;
-    img.loading = "lazy";
+        let filteredTemples = temples;
 
-    const content = document.createElement("div");
-    content.className = "card-content";
+        if (filter === 'old') {
+            filteredTemples = temples.filter(t => new Date(t.dedicated).getFullYear() < 1900);
+        } else if (filter === 'new') {
+            filteredTemples = temples.filter(t => new Date(t.dedicated).getFullYear() > 2000);
+        } else if (filter === 'large') {
+            filteredTemples = temples.filter(t => t.area > 90000);
+        } else if (filter === 'small') {
+            filteredTemples = temples.filter(t => t.area < 10000);
+        }
 
-    const h3 = document.createElement("div");
-    h3.className = "name";
-    h3.textContent = t.templeName;
-
-    const loc = document.createElement("div");
-    loc.className = "meta";
-    loc.textContent = t.location;
-
-    const ded = document.createElement("div");
-    ded.className = "meta";
-    ded.textContent = "Dedicated: " + formatDate(t.dedicated);
-
-    const area = document.createElement("div");
-    area.className = "meta";
-    area.textContent =
-        "Area: " + Number(t.area).toLocaleString() + " sq ft";
-
-    const footerRow = document.createElement("div");
-    footerRow.className = "footer-row";
-
-    const chip = document.createElement("div");
-    chip.className = "chip";
-    chip.textContent =
-        t.area > 90000
-            ? "Large"
-            : t.area < 10000
-                ? "Small"
-                : "Medium";
-
-    footerRow.appendChild(chip);
-
-    content.appendChild(h3);
-    content.appendChild(loc);
-    content.appendChild(ded);
-    content.appendChild(area);
-    content.appendChild(footerRow);
-
-    article.appendChild(img);
-    article.appendChild(content);
-
-    return article;
-}
-
-
-
-function render(list) {
-    grid.innerHTML = "";
-    if (!list.length) {
-        grid.innerHTML =
-            '<p style="padding:1rem">No temples match this filter.</p>';
-        return;
-    }
-    list.forEach((t) => grid.appendChild(createCard(t)));
-}
-
-
-
-function setActiveButton(button) {
-    const buttons = [...nav.querySelectorAll(".nav-btn")];
-    buttons.forEach((b) => b.setAttribute("aria-pressed", "false"));
-    buttons.forEach((b) => b.classList.remove("active"));
-
-    button.setAttribute("aria-pressed", "true");
-    button.classList.add("active");
-}
-
-
-
-render(temples);
-
-
-
-nav.addEventListener("click", (e) => {
-    const btn = e.target.closest(".nav-btn");
-    if (!btn) return;
-
-    const filter = btn.dataset.filter;
-    setActiveButton(btn);
-
-    let result = [];
-
-    if (filter === "all") result = temples.slice();
-    else if (filter === "old")
-        result = temples.filter(
-            (t) => new Date(t.dedicated) < new Date("1900-01-01")
-        );
-    else if (filter === "new")
-        result = temples.filter(
-            (t) => new Date(t.dedicated) > new Date("2000-12-31")
-        );
-    else if (filter === "large")
-        result = temples.filter((t) => t.area > 90000);
-    else if (filter === "small")
-        result = temples.filter((t) => t.area < 10000);
-
-    render(result);
+        displayTemples(filteredTemples);
+    });
 });
 
+document.getElementById('year').textContent = new Date().getFullYear();
+document.getElementById('lastModified').textContent = document.lastModified;
 
 
-document.addEventListener("DOMContentLoaded", () => {
-    const menubutton = document.getElementById("menubutton");
-    const primaryNav = document.getElementById("primary-nav");
-
-    if (menubutton && primaryNav) {
-        menubutton.addEventListener("click", () => {
-            primaryNav.classList.toggle("open");
-
-            const expanded =
-                menubutton.getAttribute("aria-expanded") === "true";
-            menubutton.setAttribute("aria-expanded", !expanded);
-
-            const icon = menubutton.querySelector(".hamburger-icon");
-            if (icon)
-                icon.textContent = primaryNav.classList.contains("open")
-                    ? "✕"
-                    : "☰";
-        });
-    }
-
-    if (yearSpan) yearSpan.textContent = new Date().getFullYear();
-    if (lastModSpan)
-        lastModSpan.textContent = document.lastModified;
-});
 
 

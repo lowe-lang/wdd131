@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description"
+        content="W04 Enhanced Temple Picture Album — filterable temple cards built with JavaScript" />
+    <title>Temple Album</title>
+    <link rel="stylesheet" href="filtered-temples.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="header-inner">
+            <h1 class="site-title">Temple Album</h1>
+
+
+            <button id="menubutton" class="hamburger" aria-expanded="false" aria-controls="primary-nav"
+                aria-label="Toggle navigation">
+                <span class="hamburger-icon">☰</span>
+            </button>
+
+
+            <nav id="primary-nav" class="primary-nav" aria-label="Main Navigation">
+                <button data-filter="all" class="nav-btn" aria-pressed="true">Home</button>
+                <button data-filter="old" class="nav-btn">Old</button>
+                <button data-filter="new" class="nav-btn">New</button>
+                <button data-filter="large" class="nav-btn">Large</button>
+                <button data-filter="small" class="nav-btn">Small</button>
+            </nav>
+        </div>
+    </header>
+
+
+    <main>
+        <h2>Temple Photos</h2>
+
+
+        <section id="templeGrid" class="gallery" aria-live="polite"></section>
+    </main>
+
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <p>&copy; <span id="year"></span> John Lowen / Temple Album.</p>
+            <p>Last modified: <span id="lastModified"></span></p>
+        </div>
+    </footer>
+
+
+    <script defer src="filtered-temples.js"></script>
+</body>
+
+</html>

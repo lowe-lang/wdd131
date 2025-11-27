@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Confirmation</title>
+    <link rel="stylesheet" href="css/form.css">
+</head>
+
+<body>
+    <header>
+        <h1>Thank You for Your Review!</h1>
+    </header>
+
+    <main>
+        <p>Your review has been submitted successfully.</p>
+        <p id="reviewCounter"></p>
+
+        <a href="form.html">Submit Another Review</a>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 John Lowen | BYU-I Dynamic Web Fundamentals</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            let reviewCount = localStorage.getItem("reviewCount") || 0;
+            reviewCount = parseInt(reviewCount);
+            document.getElementById("reviewCounter").textContent =
+                `You have submitted ${reviewCount} review(s).`;
+        });
+    </script>
+</body>
+
+</html>

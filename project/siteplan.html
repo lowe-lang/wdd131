@@ -8,33 +8,44 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            margin: 20px;
-            line-height: 1.6;
             background-color: #f4f4f9;
             color: #333;
+            margin: 20px;
+            line-height: 1.6;
+        }
+
+        h1,
+        h2 {
+            font-family: 'Arial Black', sans-serif;
+            color: #1a73e8;
+            margin-bottom: 10px;
+        }
+
+        p,
+        li {
+            font-family: 'Arial', sans-serif;
+            color: #333;
+        }
+
+        section {
+            background-color: #ffffff;
+            border-left: 8px solid #1a73e8;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         header {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
         }
 
         header img {
             width: 120px;
             height: auto;
-        }
-
-        h1,
-        h2 {
-            color: #1a73e8;
-        }
-
-        section {
-            margin-bottom: 30px;
-            padding: 15px;
-            background-color: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            border: 3px solid #ff7043;
+            border-radius: 50%;
         }
 
         .color-box {
@@ -43,10 +54,7 @@
             height: 25px;
             margin-right: 10px;
             vertical-align: middle;
-        }
-
-        h1, h2 {
-        color: #1a73
+            border: 1px solid #333;
         }
 
         ul {
@@ -55,11 +63,21 @@
         }
 
         .wireframe {
-            border: 2px dashed #1a73e8;
-            padding: 10px;
+            border: 2px dashed #ff7043;
+            /* Accent color for wireframes */
+            padding: 15px;
             text-align: center;
+            color: #ff7043;
             margin-top: 10px;
-            color: #1a73e8;
+            font-family: 'Georgia', serif;
+            /* Special font for wireframes */
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #555;
         }
     </style>
 </head>
@@ -75,8 +93,8 @@
     <section>
         <h2>Site Name</h2>
         <p><strong>Coastal Surf Club</strong></p>
-        <p>This name represents a club that brings together surfers and surf enthusiasts along the California coast. The
-            name is simple, memorable, and highlights our main focus: surfing.</p>
+        <p>This name represents a club that brings together surfers and surf enthusiasts along the California coast. It
+            is simple, memorable, and highlights our main focus: surfing.</p>
         <p>Optional domain availability: coastal-surfclub.org</p>
     </section>
 
@@ -97,10 +115,10 @@
     <section>
         <h2>Color Schema</h2>
         <p>
-            <span class="color-box" style="background-color:#1a73e8;"></span>Primary color: #1a73e8 — used for headings,
-            buttons, and navigation links<br>
-            <span class="color-box" style="background-color:#ff7043;"></span>Accent color: #ff7043 — used for
-            highlights, call-to-action buttons, and links
+            <span class="color-box" style="background-color:#1a73e8;"></span>Primary color: #1a73e8 — headings, section
+            borders, buttons, and navigation links<br>
+            <span class="color-box" style="background-color:#ff7043;"></span>Accent color: #ff7043 — highlights,
+            call-to-action buttons, logo border, and wireframe outlines
         </p>
     </section>
 
@@ -109,7 +127,7 @@
         <ul>
             <li>Headings: 'Arial Black', sans-serif</li>
             <li>Body text: 'Arial', sans-serif</li>
-            <li>Special sections (e.g., quotes or testimonials): 'Georgia', serif</li>
+            <li>Special sections (e.g., wireframes or callouts): 'Georgia', serif</li>
         </ul>
     </section>
 
@@ -126,15 +144,19 @@
 
     <section>
         <h2>CSS</h2>
-        <p>The styling will use the color schema and typography above. CSS will be kept simple and responsive, using
-            flexbox or grid where necessary to support both mobile and desktop views.</p>
+        <p>The styling uses the colors and fonts listed above. CSS is simple, clean, and responsive for both mobile and
+            desktop views using flexbox or grid as needed.</p>
     </section>
 
     <section>
         <h2>Testing</h2>
-        <p>The website will be checked for validation, accessibility, color contrast, SEO best practices, and
-            performance using browser DevTools and Lighthouse.</p>
+        <p>The website will be tested for HTML/CSS validation, accessibility, color contrast, SEO best practices, and
+            performance using DevTools and Lighthouse.</p>
     </section>
+
+    <footer>
+        &copy; 2025 Coastal Surf Club
+    </footer>
 
 </body>
 

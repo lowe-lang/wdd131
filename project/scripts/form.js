@@ -1,18 +1,20 @@
 const products = [
-    { id: 1, name: "Product A" },
-    { id: 2, name: "Product B" },
-    { id: 3, name: "Product C" },
-    { id: 4, name: "Product D" }
+    { id: "p1", name: "Camping Tent" },
+    { id: "p2", name: "Sleeping Bag" },
+    { id: "p3", name: "Backpack" },
+    { id: "p4", name: "Camping Stove" }
 ];
 
-const productSelect = document.getElementById("product");
+const select = document.getElementById("product"); 
+
 
 products.forEach(product => {
     const option = document.createElement("option");
     option.value = product.id;
     option.textContent = product.name;
-    productSelect.appendChild(option);
+    select.appendChild(option);
 });
+
 
 document.addEventListener("DOMContentLoaded", () => {
     if (window.location.pathname.endsWith("review.html")) {

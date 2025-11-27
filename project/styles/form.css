@@ -53,6 +53,14 @@ input[type="submit"] {
     border-radius: 5px;
 }
 
+    @media (max-width: 768px) {
+
+    }
+    
+    main {
+        grid-template-columns: 1fr;
+    }
+
 input[type="submit"]:hover {
     background-color: #d18e2b;
 }

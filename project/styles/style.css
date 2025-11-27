@@ -1,0 +1,125 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    background-color: #f5f9ff;
+    color: #222;
+}
+
+header {
+    background-color: #005f73;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    align-items: center;
+    position: relative;
+}
+
+nav ul.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #fff;
+    cursor: pointer;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    nav ul.nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: #005f73;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+        padding: 10px;
+        border-radius: 0 0 0 10px;
+    }
+
+    nav ul.nav-links.show {
+        display: flex;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+
+    nav a {
+        padding: 10px 0;
+        display: block;
+    }
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #e0fbfc;
+}
+
+button {
+    background-color: #ca6702;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #bb3e03;
+}
+
+footer {
+    text-align: center;
+    background-color: #005f73;
+    color: #fff;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+
+/* Wireframe Section */
+.wireframes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.wireframe-mobile,
+.wireframe-desktop {
+    border: 2px dashed #ca6702;
+    padding: 10px;
+    max-width: 300px;
+    text-align: center;
+}
+
+.surf-spots .images {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+.surf-spots img {
+    width: 100%;
+    max-width: 250px;
+    border-radius: 8px;
+    object-fit: cover;
+}

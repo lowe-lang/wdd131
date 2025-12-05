@@ -19,15 +19,14 @@
     </header>
 
     <main>
-        <img src="images/profile.jpg" alt="Profile Image">
-        <img src="images/camping1 (2).png" alt="Camping Image">
-
-    <form id="reviewForm" method="get" action="review.html">
+          <img src="images/profile.jpg" alt="Profile Image">
+          <img src="images/camping1.png" alt="Camping Image">
+        <form id="reviewForm" method="get" action="review.html">
     
-        <label for="productSelect">Product Name:</label>
-        <select id="productSelect" name="product" required>
-            <option value="" disabled selected>Select a Product ...</option>
-        </select>
+          <label for="productSelect">Product Name<span class="required">*</span></label>
+          <select id="productSelect" name="product" required>
+             <option value="" disabled selected>Select a Product ...</option>
+          </select>
     
         <fieldset>
             <legend>Overall Rating:</legend>
@@ -47,8 +46,6 @@
                 <input type="radio" id="rating5" name="rating" value="5"> 5 ☆☆☆☆☆
             </label>
         </fieldset>
-    
-    </form>
 
         <label for="installDate">Date of Installation:</label>
         <input type="date" id="installDate" name="date" required>
